@@ -10,7 +10,7 @@ function MyPromise(exector) {
     this.status = "resolved"
     this.data = x
     for (let i = 0; i < this.resolveArray.length; i++) {
-      this.data = this.resolveArray[i](x)
+      this.resolveArray[i](x)
     }
   }
   let rejectFn = x => {
