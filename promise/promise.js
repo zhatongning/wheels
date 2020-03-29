@@ -6,8 +6,6 @@ function MyPromise(exector) {
   }
   this.resolveArray = []
   this.rejectArray = []
-  let receiveResolve
-  let receiveRejct
   let resolveFn = x => {
     this.status = "resolved"
     this.data = x
@@ -24,7 +22,7 @@ function MyPromise(exector) {
   }
   this.status = "pending"
   try {
-    if (receiveResolve) exector(receiveResolve, receiveRejct)
+    exector(resolveFn, rejectFn)
   } catch (e) {
     rejectFn(e)
   }
